@@ -3,16 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Name | Web名刺</title>
-    <meta name="description" content="Your Name のWeb名刺です。" />
+    <meta name="theme-color" content="#f7eed3" />
+    <title>一ノ瀬 裕斗 | Web名刺</title>
+    <meta name="description" content="一ノ瀬 裕斗のWeb名刺です。" />
+    <script>
+      (() => {
+        const savedTheme = localStorage.getItem('web-card-theme');
+        const theme = savedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!--
-      ここは空の雛形です。
-      /web-card スキルが要件を聞き、このファイルを丸ごと書き換えます。
-      自分でここを直接編集する必要はありません。
-    -->
+    <main class="page-shell" id="page-top">
+      <header class="topbar">
+        <p class="brand">YUTO <span>WEB CARD</span></p>
+        <button class="theme-toggle" type="button" aria-label="表示テーマを切り替える" aria-pressed="false">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </header>
+
+      <div class="intro-grid">
+        <section class="hero reveal">
+          <p class="eyebrow">HELLO, I'M</p>
+          <h1>一ノ瀬 <em>裕斗</em></h1>
+          <p class="reading">ICHINOSE YUTO</p>
+          <p class="role">〇〇合同会社 <b>/</b> フロントエンドエンジニア</p>
+          <p class="tagline">つながりから、<br />つくる。<span>Webで、ひらく。</span></p>
+          <div class="burst" aria-label="人とつくる">
+            <span>人と<br />つくる!</span>
+          </div>
+        </section>
+
+        <section class="gallery reveal" aria-label="写真ギャラリー">
+          <div class="gallery__frame">
+            <div class="gallery__slides">
+              <figure class="gallery__slide is-active"><img src="./assets/cafe.JPG" alt="カフェで撮影した写真" /></figure>
+              <figure class="gallery__slide"><img src="./assets/266370.jpg" alt="一ノ瀬裕斗の活動写真" /></figure>
+              <figure class="gallery__slide"><img src="./assets/bar.png" alt="一ノ瀬裕斗の活動写真" /></figure>
+            </div>
+            <div class="gallery-ticker" aria-label="活動キーワード">
+              <div class="gallery-ticker__track">
+                <span>つながり</span><i aria-hidden="true">★</i><span>個人開発</span><i aria-hidden="true">★</i><span>勉強会</span><i aria-hidden="true">★</i><span>登壇</span><i aria-hidden="true">★</i><span>コミュニティ</span><i aria-hidden="true">★</i><span>アイデアを形に</span><i aria-hidden="true">★</i>
+                <span aria-hidden="true">つながり</span><i aria-hidden="true">★</i><span aria-hidden="true">個人開発</span><i aria-hidden="true">★</i><span aria-hidden="true">勉強会</span><i aria-hidden="true">★</i><span aria-hidden="true">登壇</span><i aria-hidden="true">★</i><span aria-hidden="true">コミュニティ</span><i aria-hidden="true">★</i><span aria-hidden="true">アイデアを形に</span><i aria-hidden="true">★</i>
+              </div>
+            </div>
+            <button class="gallery__button gallery__button--previous" type="button" aria-label="前の写真">←</button>
+            <button class="gallery__button gallery__button--next" type="button" aria-label="次の写真">→</button>
+            <div class="gallery__dots" role="tablist" aria-label="写真を選ぶ"></div>
+          </div>
+          <p class="photo-caption">CAFE TIME / 01-03</p>
+        </section>
+      </div>
+
+      <section class="about panel reveal">
+        <div class="panel__title"><span>01</span><h2>ABOUT ME</h2></div>
+        <p>新卒2年目のフロントエンドエンジニアです。高校2年生の頃から独学でプログラミングを学び、大学時代から実務経験を積んできました。</p>
+        <p>個人開発やカンファレンス登壇、もくもく会などの勉強会を開催しています。ITと人とのつながりを通して、課題解決と価値創造を実現したいです。</p>
+      </section>
+
+      <section class="highlights reveal" aria-labelledby="highlights-title">
+        <div class="section-heading"><span>02</span><h2 id="highlights-title">HIGHLIGHTS</h2></div>
+        <a class="highlight highlight--blue" href="https://akabane-yurumoku.connpass.com/" target="_blank" rel="noopener noreferrer">
+          <span class="highlight__number">01</span><strong>赤羽ゆるもく会</strong><span>コミュニティ立ち上げ <b>↗</b></span>
+        </a>
+        <a class="highlight highlight--red" href="https://fortee.jp/fec-kansai-2026/proposal/4fe251fa-d297-4f59-b9ca-0ef0b9ece325" target="_blank" rel="noopener noreferrer">
+          <span class="highlight__number">02</span><strong>FE Conf Kansai 2026</strong><span>登壇予定 <b>↗</b></span>
+        </a>
+        <a class="highlight highlight--yellow" href="https://akabane-yurumoku.connpass.com/event/404374/" target="_blank" rel="noopener noreferrer">
+          <span class="highlight__number">03</span><strong>NFC名刺ワークショップ</strong><span>開催 <b>↗</b></span>
+        </a>
+      </section>
+
+      <section class="links panel reveal" aria-labelledby="links-title">
+        <div class="panel__title"><span>03</span><h2 id="links-title">LET'S CONNECT</h2></div>
+        <nav aria-label="プロフィールリンク">
+          <a href="https://github.com/illionillion" target="_blank" rel="noopener noreferrer"><span>GH</span>GitHub <b>↗</b></a>
+          <a href="https://x.com/Sei_engineer" target="_blank" rel="noopener noreferrer"><span>𝕏</span>X <b>↗</b></a>
+          <a href="https://illionillion-slides.pages.dev/" target="_blank" rel="noopener noreferrer"><span>◫</span>Slides <b>↗</b></a>
+          <a href="https://fusely-app.pages.dev/app" target="_blank" rel="noopener noreferrer"><span>伏</span>伏せ太郎 <b>↗</b></a>
+        </nav>
+      </section>
+    </main>
+    <footer>MADE WITH CURIOSITY <span>★</span> 2026</footer>
+    <a class="back-to-top" href="#page-top" aria-label="ページ上部へ戻る" title="ページ上部へ戻る" onclick="window.scrollTo(0, 0)" hidden>↑</a>
     <script src="./script.js"></script>
   </body>
 </html>
