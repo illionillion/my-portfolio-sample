@@ -75,6 +75,7 @@ function updateScrollControls() {
 	topbar.classList.toggle('is-stuck', hasScrolled);
 }
 
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 window.addEventListener('scroll', updateScrollControls, { passive: true });
 document.addEventListener('scroll', updateScrollControls, { passive: true });
 updateScrollControls();
